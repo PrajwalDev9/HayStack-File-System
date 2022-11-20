@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Haystack-DFS</title>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th align="left">File name</th>
+        <th>Size</th>
+        <th>Operate</th>
+      </tr>
+      {% for file in files.values() %}
+      <tr>
+        <th align="left">{{ file['filename'] }}</th>
+        <th>{{ file['size']|format_size }}</th>
+        <th>
+          <a href="/download/{{ file['fid'] }}">Download</a>
+          <a href="/delete/{{ file['fid'] }}">Delete</a>
+        </th>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
